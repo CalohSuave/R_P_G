@@ -38,7 +38,7 @@ public class ControllerRPS {
     }
 
     private void chooseAction(Round round) {
-        for (int i = 1; i < 3; i++) {
+        for (int i = 0; i < 2; i++) {
             int action;
             int cont = 0;
             do {
@@ -46,12 +46,12 @@ public class ControllerRPS {
                     view.printErrorAction();
                 }
 
-                view.chooseAction(i);
+                view.chooseAction(names[i]);
                 action = Integer.parseInt(sc.nextLine());
 
                 cont++;
             } while (action > 3 || action < 1);
-            if (i == 1) {
+            if (i == 0) {
                 round.setActionPlayer1(Action.values()[action - 1]);
             } else {
                 round.setActionPlayer2(Action.values()[action - 1]);

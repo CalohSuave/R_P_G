@@ -12,9 +12,9 @@ public class ViewRPS {
         System.out.print("Enter your name player "+i+": ");
     }
 
-    public void chooseAction(int i){
-        System.out.println("Insert your action player "+i);
-        System.out.println("(1-Rock || 2-Paper || 3-Scissors)");
+    public void chooseAction(String name){
+        System.out.println("Insert your action " +name);
+        System.out.println("(1-Rock --- 2-Paper --- 3-Scissors)");
     }
 
     public void printWinnerRound(String winner){
