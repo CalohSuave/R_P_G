@@ -4,7 +4,7 @@ public class ViewRPS {
     }
 
     public void printInitMenu(){
-        System.out.print("WELOCME TO ROCK PAPER SCISSORS \n"
+        System.out.print("WELCOME TO ROCK PAPER SCISSORS \n"
                 + "Press ENTER to start...");
     }
 
@@ -26,7 +26,7 @@ public class ViewRPS {
     }
 
     public void printDraw(){
-        System.out.println("Draw, both of the players choose the same action");
+        System.out.println("Draw, both players have chosen the same action");
     }
 
     public void printErrorAction(){

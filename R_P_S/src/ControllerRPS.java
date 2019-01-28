@@ -9,6 +9,7 @@ public class ControllerRPS {
     private final String[] names = new String[2];
     private Round round;
     private final Pattern p = Pattern.compile("^[1-3]*$");
+    private final String regex = "[0-9]+";
 
     public ControllerRPS(ViewRPS view, RockPaperScissors game) {
         this.view = view;
@@ -39,6 +40,7 @@ public class ControllerRPS {
 
     private void chooseAction(Round round) {
         for (int i = 0; i < 2; i++) {
+            String sAction;
             int action;
             int cont = 0;
             do {
@@ -47,7 +49,13 @@ public class ControllerRPS {
                 }
 
                 view.chooseAction(names[i]);
-                action = Integer.parseInt(sc.nextLine());
+                sAction = sc.nextLine();
+
+                if (sAction.matches(regex)){
+                    action = Integer.parseInt(sAction);
+                } else {
+                    action = 0;
+                }
 
                 cont++;
             } while (action > 3 || action < 1);
