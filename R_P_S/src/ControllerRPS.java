@@ -51,7 +51,7 @@ public class ControllerRPS {
                 view.chooseAction(names[i]);
                 sAction = sc.nextLine();
 
-                if (sAction.matches(regex)){
+                if (sAction.matches(regex)) {
                     action = Integer.parseInt(sAction);
                 } else {
                     action = 0;
@@ -69,60 +69,51 @@ public class ControllerRPS {
     }
 
     private void compareActions() {
+
+
         if (round.getActionPlayer1() == Action.ROCK) {
-            if (null == round.getActionPlayer2()) {
+
+            if (round.getActionPlayer2() == Action.PAPER) {
+                game.player2.win();
+                view.printWinnerRound(game.player2.getName());
+
+            } else if (round.getActionPlayer2() == Action.SCISSORS) {
+                game.player1.win();
+                view.printWinnerRound(game.player1.getName());
+
+            } else
                 view.printDraw();
-            } else switch (round.getActionPlayer2()) {
-                case PAPER:
-                    game.player2.win();
-                    view.printWinnerRound(game.player2.getName());
-                    break;
-                case SCISSORS:
-                    game.player1.win();
-                    view.printWinnerRound(game.player1.getName());
-                    break;
-                default:
-                    view.printDraw();
-                    break;
-            }
         }
+
 
         if (round.getActionPlayer1() == Action.PAPER) {
-            if (null == round.getActionPlayer2()) {
+
+            if (round.getActionPlayer2() == Action.ROCK) {
+                game.player1.win();
+                view.printWinnerRound(game.player1.getName());
+
+            } else if (round.getActionPlayer2() == Action.SCISSORS) {
+                game.player2.win();
+                view.printWinnerRound(game.player2.getName());
+
+            } else
                 view.printDraw();
-            } else switch (round.getActionPlayer2()) {
-                case SCISSORS:
-                    game.player2.win();
-                    view.printWinnerRound(game.player2.getName());
-                    break;
-                case ROCK:
-                    game.player1.win();
-                    view.printWinnerRound(game.player1.getName());
-                    break;
-                default:
-                    view.printDraw();
-                    break;
-            }
         }
+
 
         if (round.getActionPlayer1() == Action.SCISSORS) {
-            if (null == round.getActionPlayer2()) {
-                view.printDraw();
-            } else switch (round.getActionPlayer2()) {
-                case ROCK:
-                    game.player2.win();
-                    view.printWinnerRound(game.player2.getName());
-                    break;
-                case PAPER:
-                    game.player1.win();
-                    view.printWinnerRound(game.player1.getName());
-                    break;
-                default:
-                    view.printDraw();
-                    break;
-            }
-        }
 
+            if (round.getActionPlayer2() == Action.ROCK) {
+                game.player2.win();
+                view.printWinnerRound(game.player2.getName());
+
+            } else if (round.getActionPlayer2() == Action.PAPER) {
+                game.player1.win();
+                view.printWinnerRound(game.player1.getName());
+
+            } else
+                view.printDraw();
+        }
         checkWinnerGame();
     }
 
